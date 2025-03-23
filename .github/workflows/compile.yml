@@ -1,0 +1,34 @@
+name: Compile
+
+on:
+  push:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: fancy-echo
+        uses: logesh-kumar/fancy-echo@v1.2.0
+        with:
+          who-to-greet: ${{ secrets.MINIO_ENDPOINT }}
+          
+      - name: Zip
+        uses: vimtor/action-zip@v1.2
+        with:
+          files: /
+          dest: result.zip
+      - name: Upload to MinIO
+        uses: yakubique/minio-upload@v1.1.3
+        with:
+          endpoint: ${{ secrets.MINIO_ENDPOINT }}
+          access_key: ${{ secrets.MINIO_ACCESS_KEY }}
+          secret_key: ${{ secrets.MINIO_SECRET_KEY }}
+          bucket: bedwars
+          source: ./result.zip
+          insecure: true
+          

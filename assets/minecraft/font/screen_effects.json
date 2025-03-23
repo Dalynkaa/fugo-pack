@@ -1,0 +1,22 @@
+{
+    "providers":[
+       {
+          "type":"bitmap",
+          "file":"hud/screen_effects/fullscreen.png",
+          "ascent":256,
+          "height":2048,
+          "chars":[
+             "1"
+          ]
+       },
+       {
+        "type":"bitmap",
+        "file":"hud/screen_effects/fullscreen_transparent.png",
+        "ascent":256,
+        "height":2048,
+        "chars":[
+           "2"
+        ]
+     }
+    ]
+ }

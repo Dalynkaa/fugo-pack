@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:block/carved_pumpkin",
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 10000
+      },
+      "model": "bedwars:items/faraonhead"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 10001
+      },
+      "model": "bedwars:items/jons"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 10002
+      },
+      "model": "item/carved_pumpkin"
+    }
+    {
+      "predicate": {
+        "custom_model_data": 10003
+      },
+      "model": "bedwars:items/kukla"
+  ]
+}

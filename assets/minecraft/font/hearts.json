@@ -1,0 +1,22 @@
+{
+    "providers":[
+       {
+          "type":"bitmap",
+          "file":"hud/hearts/full_heart.png",
+          "ascent":-46,
+          "height":16,
+          "chars":[
+             "1"
+          ]
+       },
+       {
+        "type":"bitmap",
+        "file":"hud/hearts/empty_heart.png",
+        "ascent":-46,
+        "height":16,
+        "chars":[
+           "2"
+        ]
+      }
+    ]
+ }

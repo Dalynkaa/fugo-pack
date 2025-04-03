@@ -1,0 +1,28 @@
+{
+    "providers":[
+       {
+          "type":"bitmap",
+          "file":"hud/stamina/full_stamina.png",
+          "ascent":-46,
+          "height":17,
+          "chars":[
+             "1234567890abcd"
+          ]
+       },
+       {
+        "type":"bitmap",
+        "file":"hud/stamina/empty_stamina.png",
+        "ascent":-46,
+        "height":17,
+        "chars":[
+           "efghijklmnopqr"
+        ]
+      },
+      {
+         "type": "space",
+         "advances":{
+            " ":-1
+         }
+      }
+    ]
+ }

@@ -27,11 +27,8 @@ void main() {
     vertexDistance = fog_distance(Position, FogShape);
     vertexColor = Color * texelFetch(Sampler2, UV2 / 16, 0);
     texCoord0 = UV0;
-    
     // NoShadow behavior (https://github.com/PuckiSilver/NoShadow)
     ivec3 iColor = ivec3(Color.xyz * 255 + vec3(0.5));
-    
-    // Check for main text with color #4e5c24 (78, 92, 36)
     if (iColor == ivec3(78, 92, 36) && (
         roughlyEquals(Position.z, 2200.03) || // Actionbar
         roughlyEquals(Position.z, 2400.06) || // Subtitle
@@ -42,18 +39,10 @@ void main() {
         roughlyEquals(Position.z, 400.03) ||  // Items
         roughlyEquals(Position.z, 1000.03) || // Bossbar
         roughlyEquals(Position.z, 2800.03) || // Scoreboard List
-        roughlyEquals(Position.z, 2000)       // Scoreboard Sidebar
-        )) {
+        roughlyEquals(Position.z, 2000)       // Scoreboard Sidebar (Has no shadow, remove tint for consistency)
+        )) { // Regular text
         vertexColor.rgb = texelFetch(Sampler2, UV2 / 16, 0).rgb; // Remove color from no shadow marker
-    } 
-    // Check for offsets font (you can identify by UV or other properties)
-    else if (UV0.x > 0.0 && UV0.x < 0.01 && UV0.y > 0.0 && UV0.y < 0.01) {
-        // Special handling for offset characters - could adjust position or visibility
-        // For example, to make them invisible but keep their spacing:
-        vertexColor.a = 0.0;
-    }
-    // Handle shadows
-    else if (iColor == ivec3(19, 23, 9) && (
+    } else if (iColor == ivec3(19, 23, 9) && (
         roughlyEquals(Position.z, 2200) || // Actionbar
         roughlyEquals(Position.z, 2400) || // Subtitle | Title
         roughlyEquals(Position.z, 50) ||   // Opened Chat

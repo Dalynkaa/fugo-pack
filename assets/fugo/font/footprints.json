@@ -1,0 +1,13 @@
+{
+    "providers":[
+       {
+          "type":"bitmap",
+          "file":"mics/footprint.png",
+          "ascent":0,
+          "height":14,
+          "chars":[
+             "1"
+          ]
+       }
+    ]
+ }
